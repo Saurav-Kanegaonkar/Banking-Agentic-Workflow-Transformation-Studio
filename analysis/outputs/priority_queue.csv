@@ -1,0 +1,26 @@
+entity_id,entity_name,segment,priority_score,avg_risk_score,avg_quality_score,estimated_impact
+BAN017,Banking workflow 17,Growth,96.76,54.2,79.2,791024
+BAN008,Banking workflow 8,Growth,94.50,51.5,78.6,779919
+BAN003,Banking workflow 3,Growth,92.54,51.9,80.1,755570
+BAN001,Banking workflow 1,Core,88.09,53.2,80.8,685233
+BAN006,Banking workflow 6,Strategic,87.70,52.3,80.2,684961
+BAN012,Banking workflow 12,Growth,86.49,53.8,81.0,659045
+BAN032,Banking workflow 32,Core,86.17,53.6,79.8,650380
+BAN020,Banking workflow 20,Core,85.65,50.2,80.3,675142
+BAN010,Banking workflow 10,Strategic,85.45,49.1,79.2,676946
+BAN023,Banking workflow 23,Watch,85.36,49.4,80.8,680357
+BAN002,Banking workflow 2,Strategic,84.06,50.0,80.5,655547
+BAN016,Banking workflow 16,Core,83.02,50.0,80.7,641680
+BAN022,Banking workflow 22,Watch,82.47,50.3,81.0,632912
+BAN036,Banking workflow 36,Growth,81.61,49.9,82.0,629126
+BAN033,Banking workflow 33,Strategic,81.19,51.4,80.0,600680
+BAN014,Banking workflow 14,Strategic,80.32,47.7,78.3,612976
+BAN029,Banking workflow 29,Growth,78.70,48.6,77.9,581370
+BAN019,Banking workflow 19,Watch,77.40,51.5,81.1,551784
+BAN028,Banking workflow 28,Growth,77.15,51.7,80.0,541955
+BAN018,Banking workflow 18,Strategic,76.35,53.9,80.2,512246
+BAN027,Banking workflow 27,Watch,76.26,49.6,80.0,547890
+BAN024,Banking workflow 24,Core,75.60,50.4,80.1,532074
+BAN035,Banking workflow 35,Growth,75.49,48.4,80.3,548467
+BAN034,Banking workflow 34,Watch,75.39,51.0,80.2,524132
+BAN015,Banking workflow 15,Growth,74.95,49.3,80.2,532683
