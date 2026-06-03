@@ -1,15 +1,16 @@
 # Executive Findings
 
-## What I analyzed
+## What I Analyzed
 
-I joined 5,040 daily metric rows, 760 source events, and 220 action candidates for banking agentic AI workflow transformation, human-in-the-loop controls, backlog refinement, and financial-services adoption governance.
+I evaluated eight synthetic agentic AI use cases across a regulated wealth, corporate, commercial, and institutional banking operating model. The scoring connects business value, implementation readiness, data quality, risk exposure, human review need, compliance complexity, and adoption friction.
 
 ## Findings
 
-- The highest-priority banking workflow is BAN017 with a priority score of 96.76.
-- The top queue combines 54.2 average risk with 79.2 quality score and $791,024 estimated impact.
-- The strongest use case is turning repeated stakeholder questions into a ranked operating digest.
+- The highest-priority workflow is Treasury payment investigation assistant with a priority score of 78.3.
+- The portfolio contains 1 controlled pilot candidates and 1 use cases that should pause for stronger control evidence.
+- The modeled portfolio has 6,170 weekly cases and an estimated 1,422.3 weekly hours of staff capacity that could shift from manual packet assembly to review and exception handling.
+- Human-in-the-loop design is not a late-stage governance task. It is part of the product requirement because all high-risk workflows need reviewer decision capture, escalation routing, and audit evidence before pilot release.
 
 ## Recommendation
 
-Prioritize the top queue before scaling more dashboards. The project should help leaders decide which banking workflow risks need action, validation, or monitoring.
+Start with the payment investigation and institutional service routing use cases because they combine high volume, strong data readiness, and a practical review pattern. Keep KYC refresh and capital markets document intake in control design until evidence citation, audit export, and escalation behavior meet release thresholds.

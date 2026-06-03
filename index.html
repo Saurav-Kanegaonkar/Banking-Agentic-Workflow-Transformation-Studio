@@ -6,24 +6,38 @@
   <title>Banking Agentic Workflow Transformation Studio</title>
   <link rel="stylesheet" href="src/styles.css">
 </head>
-<body class="ai-discovery" style="--accent:#a16207;--bg:#fff7ed">
-  <main class="ai-shell">
-    <header class="ai-hero">
-      <p>AI product discovery studio</p>
-      <h1>Banking Agentic Workflow Transformation Studio</h1>
-      <span>Blends interview evidence, community feedback, product telemetry, competitive research, and prompt-test notes into PRD-ready choices.</span>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Agentic AI product operating packet</p>
+        <h1>Banking Agentic Workflow Transformation Studio</h1>
+      </div>
+      <div class="release-pill" id="releasePill">Loading</div>
     </header>
-    <section class="prd-grid">
-      <article class="memo"><b>01</b><h2>User Pull</h2><p>Power users want faster ideation, but community threads show low tolerance for black-box creative controls.</p></article>
-      <article class="memo"><b>02</b><h2>Edge Cases</h2><p>Prompt ambiguity, asset ownership, and revision memory are the highest-risk requirements before launch.</p></article>
-      <article class="memo"><b>03</b><h2>Roadmap Bet</h2><p>Ship a narrow feedback loop around saved prompts before expanding into a broader creative workflow suite.</p></article>
-    </section>
-    <section class="experiment-wall">
-      <h2>Launch Readout</h2>
-      <div><span>Activation lift</span><strong>+20%</strong></div>
-      <div><span>Escalation risk</span><strong>-21%</strong></div>
-      <div><span>Research hours</span><strong>-18</strong></div>
+
+    <section class="summary-grid" id="summaryGrid" aria-label="Portfolio summary"></section>
+
+    <section class="workbench">
+      <aside class="queue-panel">
+        <div class="panel-head">
+          <p class="eyebrow">Intake queue</p>
+          <h2>Use Cases</h2>
+        </div>
+        <div class="queue-list" id="queueList"></div>
+      </aside>
+
+      <section class="detail-panel">
+        <nav class="tabs" aria-label="Artifact sections">
+          <button class="tab active" type="button" data-tab="intake">Intake</button>
+          <button class="tab" type="button" data-tab="prd">PRD</button>
+          <button class="tab" type="button" data-tab="gates">Gates</button>
+          <button class="tab" type="button" data-tab="adoption">OKRs</button>
+        </nav>
+        <article id="detailSurface"></article>
+      </section>
     </section>
   </main>
+  <script src="src/app.js"></script>
 </body>
 </html>

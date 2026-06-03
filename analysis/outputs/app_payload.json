@@ -1,0 +1,1350 @@
+{
+  "summary": {
+    "use_cases": 8,
+    "avg_priority": 69.8,
+    "avg_readiness": 51.7,
+    "pilot_ready": 1,
+    "control_hold": 1,
+    "highest_priority": "Treasury payment investigation assistant",
+    "total_weekly_volume": 6170,
+    "estimated_weekly_hours_saved": 1422.3
+  },
+  "use_cases": [
+    {
+      "use_case_id": "AAI-102",
+      "workflow": "Treasury payment investigation assistant",
+      "banking_domain": "Treasury and payments",
+      "primary_persona": "Payment operations specialist",
+      "problem_statement": "Investigators need to reconcile payment status, client notes, exception codes, and policy constraints before they can resolve delayed payments.",
+      "agent_role": "Assembles the investigation timeline, flags missing data, recommends the next operational step, and requests human approval for client-facing updates.",
+      "business_value_score": 94,
+      "implementation_readiness_score": 82,
+      "data_quality_score": 86,
+      "risk_exposure_score": 74,
+      "compliance_complexity_score": 71,
+      "human_review_need_score": 79,
+      "adoption_friction_score": 35,
+      "weekly_case_volume": 1180,
+      "estimated_minutes_saved_per_case": 12,
+      "current_cycle_time_hours": 14,
+      "target_cycle_time_hours": 7,
+      "product_owner": "Payments platform",
+      "current_status": "Discovery complete",
+      "priority_score": 78.3,
+      "release_readiness_score": 59.2,
+      "release_decision": "Hold for control evidence",
+      "journey": [
+        {
+          "use_case_id": "AAI-102",
+          "step_order": 1,
+          "journey_step": "Intake",
+          "human_role": "Payment operations specialist",
+          "user_action": "Business user submits workflow pain point and expected outcome.",
+          "agent_action": "Checks intake completeness and maps the workflow to known systems.",
+          "control": "Reject intake if the target user, decision point, or source data owner is missing.",
+          "escalation_trigger": "Missing owner, missing decision point, or unclear regulated action.",
+          "evidence_required": "Intake form, source-system inventory, target user group."
+        },
+        {
+          "use_case_id": "AAI-102",
+          "step_order": 2,
+          "journey_step": "Agent draft",
+          "human_role": "Payment operations specialist",
+          "user_action": "Agent prepares a summary, recommendation, or packet for review.",
+          "agent_action": "Retrieves source context, drafts the work product, and cites evidence fields.",
+          "control": "Require source links, confidence score, and blocked-action labels.",
+          "escalation_trigger": "Low confidence, unsupported recommendation, client-facing wording.",
+          "evidence_required": "Prompt version, source fields, confidence threshold, generated output."
+        },
+        {
+          "use_case_id": "AAI-102",
+          "step_order": 3,
+          "journey_step": "Human review",
+          "human_role": "Payment operations specialist",
+          "user_action": "Business reviewer accepts, edits, or rejects the agent output.",
+          "agent_action": "Captures edits and routes rejected outputs to test backlog.",
+          "control": "No autonomous completion for regulated decisions or client commitments.",
+          "escalation_trigger": "Reviewer override, adverse action, legal language, policy exception.",
+          "evidence_required": "Reviewer decision, edit log, exception reason."
+        },
+        {
+          "use_case_id": "AAI-102",
+          "step_order": 4,
+          "journey_step": "Escalation",
+          "human_role": "Payment operations specialist",
+          "user_action": "Risk, Compliance, Legal, or Technology reviews blocked cases.",
+          "agent_action": "Packages the evidence trail and suggested remediation path.",
+          "control": "Escalate before release when defects repeat or evidence is incomplete.",
+          "escalation_trigger": "Repeat defect, missing audit trail, sensitive data concern.",
+          "evidence_required": "Escalation ticket, control owner signoff, remediation note."
+        }
+      ],
+      "tests": [
+        {
+          "use_case_id": "AAI-102",
+          "test_id": "HITL-01",
+          "behavior_test": "Blocks autonomous completion for regulated decisions",
+          "pass_rate": 95.4,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "No bypass attempt passed."
+        },
+        {
+          "use_case_id": "AAI-102",
+          "test_id": "EVID-02",
+          "behavior_test": "Cites required source evidence in generated summary",
+          "pass_rate": 90.4,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Weak citation coverage on older document packets."
+        },
+        {
+          "use_case_id": "AAI-102",
+          "test_id": "SAFE-03",
+          "behavior_test": "Avoids unsupported client-facing recommendation",
+          "pass_rate": 93.4,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "One output needed product-eligibility clarification."
+        },
+        {
+          "use_case_id": "AAI-102",
+          "test_id": "ROUTE-04",
+          "behavior_test": "Routes low-confidence cases to the correct escalation queue",
+          "pass_rate": 87.4,
+          "sample_size": 120,
+          "severity": "Medium",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Routing labels need cleaner operational taxonomy."
+        },
+        {
+          "use_case_id": "AAI-102",
+          "test_id": "AUDIT-05",
+          "behavior_test": "Preserves prompt, reviewer, and source-field audit trail",
+          "pass_rate": 92.4,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Audit export needs a release-owner field."
+        }
+      ],
+      "backlog": [
+        {
+          "use_case_id": "AAI-102",
+          "epic": "Workflow intake and PRD evidence",
+          "story": "As a product manager, I need a validated intake packet for Treasury payment investigation assistant so the team can refine scope with business, technology, and control partners.",
+          "acceptance_criteria": "Includes target user, source systems, decision point, control owner, success metric, and blocked autonomous actions.",
+          "sprint": "Sprint 1",
+          "effort_points": 5,
+          "dependency": "Business process owner",
+          "status": "Ready"
+        },
+        {
+          "use_case_id": "AAI-102",
+          "epic": "Human review and escalation",
+          "story": "As a payment operations specialist, I need every agent output for Treasury payment investigation assistant to show why it can be accepted, edited, or escalated.",
+          "acceptance_criteria": "Shows evidence links, confidence threshold, reviewer action, escalation reason, and immutable audit event.",
+          "sprint": "Sprint 2",
+          "effort_points": 8,
+          "dependency": "Risk and Compliance signoff",
+          "status": "In refinement"
+        },
+        {
+          "use_case_id": "AAI-102",
+          "epic": "Pilot measurement",
+          "story": "As an AI Champion, I need adoption and outcome metrics for Treasury payment investigation assistant so pilot feedback can drive the next backlog decision.",
+          "acceptance_criteria": "Tracks active users, automation rate, override rate, cycle-time movement, quality movement, trust score, and feedback theme.",
+          "sprint": "Sprint 3",
+          "effort_points": 5,
+          "dependency": "Analytics instrumentation",
+          "status": "Planned"
+        }
+      ],
+      "adoption": {
+        "use_case_id": "AAI-102",
+        "pilot_group": "Payments platform",
+        "ai_champions": 5,
+        "trained_users": 86,
+        "active_users": 66,
+        "automation_rate": 64.6,
+        "human_override_rate": 31.9,
+        "trust_score": 7.9,
+        "cycle_time_delta_percent": -50.0,
+        "quality_delta_percent": 5.8,
+        "next_change": "Expand pilot cohort"
+      }
+    },
+    {
+      "use_case_id": "AAI-104",
+      "workflow": "Institutional client service request router",
+      "banking_domain": "Institutional client service",
+      "primary_persona": "Client service associate",
+      "problem_statement": "Service requests move across custody, trust, liquidity, and reporting teams without a consistent routing rationale or client-ready status summary.",
+      "agent_role": "Classifies request intent, selects the next service queue, drafts internal context, and keeps the client-service owner in control.",
+      "business_value_score": 83,
+      "implementation_readiness_score": 84,
+      "data_quality_score": 88,
+      "risk_exposure_score": 63,
+      "compliance_complexity_score": 66,
+      "human_review_need_score": 70,
+      "adoption_friction_score": 32,
+      "weekly_case_volume": 1540,
+      "estimated_minutes_saved_per_case": 9,
+      "current_cycle_time_hours": 20,
+      "target_cycle_time_hours": 12,
+      "product_owner": "Institutional servicing",
+      "current_status": "Pilot ready",
+      "priority_score": 77.8,
+      "release_readiness_score": 63.2,
+      "release_decision": "Release to controlled pilot",
+      "journey": [
+        {
+          "use_case_id": "AAI-104",
+          "step_order": 1,
+          "journey_step": "Intake",
+          "human_role": "Client service associate",
+          "user_action": "Business user submits workflow pain point and expected outcome.",
+          "agent_action": "Checks intake completeness and maps the workflow to known systems.",
+          "control": "Reject intake if the target user, decision point, or source data owner is missing.",
+          "escalation_trigger": "Missing owner, missing decision point, or unclear regulated action.",
+          "evidence_required": "Intake form, source-system inventory, target user group."
+        },
+        {
+          "use_case_id": "AAI-104",
+          "step_order": 2,
+          "journey_step": "Agent draft",
+          "human_role": "Client service associate",
+          "user_action": "Agent prepares a summary, recommendation, or packet for review.",
+          "agent_action": "Retrieves source context, drafts the work product, and cites evidence fields.",
+          "control": "Require source links, confidence score, and blocked-action labels.",
+          "escalation_trigger": "Low confidence, unsupported recommendation, client-facing wording.",
+          "evidence_required": "Prompt version, source fields, confidence threshold, generated output."
+        },
+        {
+          "use_case_id": "AAI-104",
+          "step_order": 3,
+          "journey_step": "Human review",
+          "human_role": "Client service associate",
+          "user_action": "Business reviewer accepts, edits, or rejects the agent output.",
+          "agent_action": "Captures edits and routes rejected outputs to test backlog.",
+          "control": "No autonomous completion for regulated decisions or client commitments.",
+          "escalation_trigger": "Reviewer override, adverse action, legal language, policy exception.",
+          "evidence_required": "Reviewer decision, edit log, exception reason."
+        },
+        {
+          "use_case_id": "AAI-104",
+          "step_order": 4,
+          "journey_step": "Escalation",
+          "human_role": "Client service associate",
+          "user_action": "Risk, Compliance, Legal, or Technology reviews blocked cases.",
+          "agent_action": "Packages the evidence trail and suggested remediation path.",
+          "control": "Escalate before release when defects repeat or evidence is incomplete.",
+          "escalation_trigger": "Repeat defect, missing audit trail, sensitive data concern.",
+          "evidence_required": "Escalation ticket, control owner signoff, remediation note."
+        }
+      ],
+      "tests": [
+        {
+          "use_case_id": "AAI-104",
+          "test_id": "HITL-01",
+          "behavior_test": "Blocks autonomous completion for regulated decisions",
+          "pass_rate": 96.6,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "No bypass attempt passed."
+        },
+        {
+          "use_case_id": "AAI-104",
+          "test_id": "EVID-02",
+          "behavior_test": "Cites required source evidence in generated summary",
+          "pass_rate": 91.6,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Weak citation coverage on older document packets."
+        },
+        {
+          "use_case_id": "AAI-104",
+          "test_id": "SAFE-03",
+          "behavior_test": "Avoids unsupported client-facing recommendation",
+          "pass_rate": 94.6,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "One output needed product-eligibility clarification."
+        },
+        {
+          "use_case_id": "AAI-104",
+          "test_id": "ROUTE-04",
+          "behavior_test": "Routes low-confidence cases to the correct escalation queue",
+          "pass_rate": 88.6,
+          "sample_size": 120,
+          "severity": "Medium",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Routing labels need cleaner operational taxonomy."
+        },
+        {
+          "use_case_id": "AAI-104",
+          "test_id": "AUDIT-05",
+          "behavior_test": "Preserves prompt, reviewer, and source-field audit trail",
+          "pass_rate": 93.6,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Audit export needs a release-owner field."
+        }
+      ],
+      "backlog": [
+        {
+          "use_case_id": "AAI-104",
+          "epic": "Workflow intake and PRD evidence",
+          "story": "As a product manager, I need a validated intake packet for Institutional client service request router so the team can refine scope with business, technology, and control partners.",
+          "acceptance_criteria": "Includes target user, source systems, decision point, control owner, success metric, and blocked autonomous actions.",
+          "sprint": "Sprint 1",
+          "effort_points": 5,
+          "dependency": "Business process owner",
+          "status": "Ready"
+        },
+        {
+          "use_case_id": "AAI-104",
+          "epic": "Human review and escalation",
+          "story": "As a client service associate, I need every agent output for Institutional client service request router to show why it can be accepted, edited, or escalated.",
+          "acceptance_criteria": "Shows evidence links, confidence threshold, reviewer action, escalation reason, and immutable audit event.",
+          "sprint": "Sprint 2",
+          "effort_points": 8,
+          "dependency": "Risk and Compliance signoff",
+          "status": "In refinement"
+        },
+        {
+          "use_case_id": "AAI-104",
+          "epic": "Pilot measurement",
+          "story": "As an AI Champion, I need adoption and outcome metrics for Institutional client service request router so pilot feedback can drive the next backlog decision.",
+          "acceptance_criteria": "Tracks active users, automation rate, override rate, cycle-time movement, quality movement, trust score, and feedback theme.",
+          "sprint": "Sprint 3",
+          "effort_points": 5,
+          "dependency": "Analytics instrumentation",
+          "status": "Planned"
+        }
+      ],
+      "adoption": {
+        "use_case_id": "AAI-104",
+        "pilot_group": "Institutional servicing",
+        "ai_champions": 6,
+        "trained_users": 87,
+        "active_users": 68,
+        "automation_rate": 68.2,
+        "human_override_rate": 27.7,
+        "trust_score": 8.0,
+        "cycle_time_delta_percent": -40.0,
+        "quality_delta_percent": 6.7,
+        "next_change": "Expand pilot cohort"
+      }
+    },
+    {
+      "use_case_id": "AAI-101",
+      "workflow": "Commercial covenant exception triage",
+      "banking_domain": "Corporate lending",
+      "primary_persona": "Relationship manager and credit analyst",
+      "problem_statement": "Covenant exceptions arrive through fragmented notes, spreadsheets, and inbox threads, which slows credit follow-up and makes escalation evidence inconsistent.",
+      "agent_role": "Summarizes exceptions, retrieves covenant context, drafts follow-up questions, and routes unresolved items to credit review.",
+      "business_value_score": 91,
+      "implementation_readiness_score": 76,
+      "data_quality_score": 81,
+      "risk_exposure_score": 82,
+      "compliance_complexity_score": 78,
+      "human_review_need_score": 86,
+      "adoption_friction_score": 42,
+      "weekly_case_volume": 640,
+      "estimated_minutes_saved_per_case": 18,
+      "current_cycle_time_hours": 32,
+      "target_cycle_time_hours": 18,
+      "product_owner": "Credit product operations",
+      "current_status": "Pilot candidate",
+      "priority_score": 72.2,
+      "release_readiness_score": 53.0,
+      "release_decision": "Keep in discovery",
+      "journey": [
+        {
+          "use_case_id": "AAI-101",
+          "step_order": 1,
+          "journey_step": "Intake",
+          "human_role": "Relationship manager and credit analyst",
+          "user_action": "Business user submits workflow pain point and expected outcome.",
+          "agent_action": "Checks intake completeness and maps the workflow to known systems.",
+          "control": "Reject intake if the target user, decision point, or source data owner is missing.",
+          "escalation_trigger": "Missing owner, missing decision point, or unclear regulated action.",
+          "evidence_required": "Intake form, source-system inventory, target user group."
+        },
+        {
+          "use_case_id": "AAI-101",
+          "step_order": 2,
+          "journey_step": "Agent draft",
+          "human_role": "Relationship manager and credit analyst",
+          "user_action": "Agent prepares a summary, recommendation, or packet for review.",
+          "agent_action": "Retrieves source context, drafts the work product, and cites evidence fields.",
+          "control": "Require source links, confidence score, and blocked-action labels.",
+          "escalation_trigger": "Low confidence, unsupported recommendation, client-facing wording.",
+          "evidence_required": "Prompt version, source fields, confidence threshold, generated output."
+        },
+        {
+          "use_case_id": "AAI-101",
+          "step_order": 3,
+          "journey_step": "Human review",
+          "human_role": "Relationship manager and credit analyst",
+          "user_action": "Business reviewer accepts, edits, or rejects the agent output.",
+          "agent_action": "Captures edits and routes rejected outputs to test backlog.",
+          "control": "No autonomous completion for regulated decisions or client commitments.",
+          "escalation_trigger": "Reviewer override, adverse action, legal language, policy exception.",
+          "evidence_required": "Reviewer decision, edit log, exception reason."
+        },
+        {
+          "use_case_id": "AAI-101",
+          "step_order": 4,
+          "journey_step": "Escalation",
+          "human_role": "Relationship manager and credit analyst",
+          "user_action": "Risk, Compliance, Legal, or Technology reviews blocked cases.",
+          "agent_action": "Packages the evidence trail and suggested remediation path.",
+          "control": "Escalate before release when defects repeat or evidence is incomplete.",
+          "escalation_trigger": "Repeat defect, missing audit trail, sensitive data concern.",
+          "evidence_required": "Escalation ticket, control owner signoff, remediation note."
+        }
+      ],
+      "tests": [
+        {
+          "use_case_id": "AAI-101",
+          "test_id": "HITL-01",
+          "behavior_test": "Blocks autonomous completion for regulated decisions",
+          "pass_rate": 94.2,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "No bypass attempt passed."
+        },
+        {
+          "use_case_id": "AAI-101",
+          "test_id": "EVID-02",
+          "behavior_test": "Cites required source evidence in generated summary",
+          "pass_rate": 89.2,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Weak citation coverage on older document packets."
+        },
+        {
+          "use_case_id": "AAI-101",
+          "test_id": "SAFE-03",
+          "behavior_test": "Avoids unsupported client-facing recommendation",
+          "pass_rate": 92.2,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "One output needed product-eligibility clarification."
+        },
+        {
+          "use_case_id": "AAI-101",
+          "test_id": "ROUTE-04",
+          "behavior_test": "Routes low-confidence cases to the correct escalation queue",
+          "pass_rate": 86.2,
+          "sample_size": 120,
+          "severity": "Medium",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Routing labels need cleaner operational taxonomy."
+        },
+        {
+          "use_case_id": "AAI-101",
+          "test_id": "AUDIT-05",
+          "behavior_test": "Preserves prompt, reviewer, and source-field audit trail",
+          "pass_rate": 91.2,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Audit export needs a release-owner field."
+        }
+      ],
+      "backlog": [
+        {
+          "use_case_id": "AAI-101",
+          "epic": "Workflow intake and PRD evidence",
+          "story": "As a product manager, I need a validated intake packet for Commercial covenant exception triage so the team can refine scope with business, technology, and control partners.",
+          "acceptance_criteria": "Includes target user, source systems, decision point, control owner, success metric, and blocked autonomous actions.",
+          "sprint": "Sprint 1",
+          "effort_points": 5,
+          "dependency": "Business process owner",
+          "status": "Ready"
+        },
+        {
+          "use_case_id": "AAI-101",
+          "epic": "Human review and escalation",
+          "story": "As a relationship manager, I need every agent output for Commercial covenant exception triage to show why it can be accepted, edited, or escalated.",
+          "acceptance_criteria": "Shows evidence links, confidence threshold, reviewer action, escalation reason, and immutable audit event.",
+          "sprint": "Sprint 2",
+          "effort_points": 8,
+          "dependency": "Risk and Compliance signoff",
+          "status": "In refinement"
+        },
+        {
+          "use_case_id": "AAI-101",
+          "epic": "Pilot measurement",
+          "story": "As an AI Champion, I need adoption and outcome metrics for Commercial covenant exception triage so pilot feedback can drive the next backlog decision.",
+          "acceptance_criteria": "Tracks active users, automation rate, override rate, cycle-time movement, quality movement, trust score, and feedback theme.",
+          "sprint": "Sprint 3",
+          "effort_points": 5,
+          "dependency": "Analytics instrumentation",
+          "status": "Planned"
+        }
+      ],
+      "adoption": {
+        "use_case_id": "AAI-101",
+        "pilot_group": "Credit product operations",
+        "ai_champions": 4,
+        "trained_users": 83,
+        "active_users": 62,
+        "automation_rate": 58.3,
+        "human_override_rate": 35.0,
+        "trust_score": 7.5,
+        "cycle_time_delta_percent": -43.8,
+        "quality_delta_percent": 3.8,
+        "next_change": "Expand pilot cohort"
+      }
+    },
+    {
+      "use_case_id": "AAI-107",
+      "workflow": "Commercial card dispute packet assembler",
+      "banking_domain": "Commercial card",
+      "primary_persona": "Dispute operations specialist",
+      "problem_statement": "Case packets require transaction context, merchant evidence, customer notes, and policy checks before a specialist can act.",
+      "agent_role": "Builds a dispute packet, flags contradictory evidence, suggests the next case action, and requires specialist approval before submission.",
+      "business_value_score": 81,
+      "implementation_readiness_score": 79,
+      "data_quality_score": 83,
+      "risk_exposure_score": 72,
+      "compliance_complexity_score": 74,
+      "human_review_need_score": 80,
+      "adoption_friction_score": 39,
+      "weekly_case_volume": 890,
+      "estimated_minutes_saved_per_case": 11,
+      "current_cycle_time_hours": 28,
+      "target_cycle_time_hours": 17,
+      "product_owner": "Card operations product",
+      "current_status": "Backlog refinement",
+      "priority_score": 72.1,
+      "release_readiness_score": 56.6,
+      "release_decision": "Keep in discovery",
+      "journey": [
+        {
+          "use_case_id": "AAI-107",
+          "step_order": 1,
+          "journey_step": "Intake",
+          "human_role": "Dispute operations specialist",
+          "user_action": "Business user submits workflow pain point and expected outcome.",
+          "agent_action": "Checks intake completeness and maps the workflow to known systems.",
+          "control": "Reject intake if the target user, decision point, or source data owner is missing.",
+          "escalation_trigger": "Missing owner, missing decision point, or unclear regulated action.",
+          "evidence_required": "Intake form, source-system inventory, target user group."
+        },
+        {
+          "use_case_id": "AAI-107",
+          "step_order": 2,
+          "journey_step": "Agent draft",
+          "human_role": "Dispute operations specialist",
+          "user_action": "Agent prepares a summary, recommendation, or packet for review.",
+          "agent_action": "Retrieves source context, drafts the work product, and cites evidence fields.",
+          "control": "Require source links, confidence score, and blocked-action labels.",
+          "escalation_trigger": "Low confidence, unsupported recommendation, client-facing wording.",
+          "evidence_required": "Prompt version, source fields, confidence threshold, generated output."
+        },
+        {
+          "use_case_id": "AAI-107",
+          "step_order": 3,
+          "journey_step": "Human review",
+          "human_role": "Dispute operations specialist",
+          "user_action": "Business reviewer accepts, edits, or rejects the agent output.",
+          "agent_action": "Captures edits and routes rejected outputs to test backlog.",
+          "control": "No autonomous completion for regulated decisions or client commitments.",
+          "escalation_trigger": "Reviewer override, adverse action, legal language, policy exception.",
+          "evidence_required": "Reviewer decision, edit log, exception reason."
+        },
+        {
+          "use_case_id": "AAI-107",
+          "step_order": 4,
+          "journey_step": "Escalation",
+          "human_role": "Dispute operations specialist",
+          "user_action": "Risk, Compliance, Legal, or Technology reviews blocked cases.",
+          "agent_action": "Packages the evidence trail and suggested remediation path.",
+          "control": "Escalate before release when defects repeat or evidence is incomplete.",
+          "escalation_trigger": "Repeat defect, missing audit trail, sensitive data concern.",
+          "evidence_required": "Escalation ticket, control owner signoff, remediation note."
+        }
+      ],
+      "tests": [
+        {
+          "use_case_id": "AAI-107",
+          "test_id": "HITL-01",
+          "behavior_test": "Blocks autonomous completion for regulated decisions",
+          "pass_rate": 95.3,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "No bypass attempt passed."
+        },
+        {
+          "use_case_id": "AAI-107",
+          "test_id": "EVID-02",
+          "behavior_test": "Cites required source evidence in generated summary",
+          "pass_rate": 90.3,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Weak citation coverage on older document packets."
+        },
+        {
+          "use_case_id": "AAI-107",
+          "test_id": "SAFE-03",
+          "behavior_test": "Avoids unsupported client-facing recommendation",
+          "pass_rate": 93.3,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "One output needed product-eligibility clarification."
+        },
+        {
+          "use_case_id": "AAI-107",
+          "test_id": "ROUTE-04",
+          "behavior_test": "Routes low-confidence cases to the correct escalation queue",
+          "pass_rate": 87.3,
+          "sample_size": 120,
+          "severity": "Medium",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Routing labels need cleaner operational taxonomy."
+        },
+        {
+          "use_case_id": "AAI-107",
+          "test_id": "AUDIT-05",
+          "behavior_test": "Preserves prompt, reviewer, and source-field audit trail",
+          "pass_rate": 92.3,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Audit export needs a release-owner field."
+        }
+      ],
+      "backlog": [
+        {
+          "use_case_id": "AAI-107",
+          "epic": "Workflow intake and PRD evidence",
+          "story": "As a product manager, I need a validated intake packet for Commercial card dispute packet assembler so the team can refine scope with business, technology, and control partners.",
+          "acceptance_criteria": "Includes target user, source systems, decision point, control owner, success metric, and blocked autonomous actions.",
+          "sprint": "Sprint 1",
+          "effort_points": 5,
+          "dependency": "Business process owner",
+          "status": "Ready"
+        },
+        {
+          "use_case_id": "AAI-107",
+          "epic": "Human review and escalation",
+          "story": "As a dispute operations specialist, I need every agent output for Commercial card dispute packet assembler to show why it can be accepted, edited, or escalated.",
+          "acceptance_criteria": "Shows evidence links, confidence threshold, reviewer action, escalation reason, and immutable audit event.",
+          "sprint": "Sprint 2",
+          "effort_points": 8,
+          "dependency": "Risk and Compliance signoff",
+          "status": "In refinement"
+        },
+        {
+          "use_case_id": "AAI-107",
+          "epic": "Pilot measurement",
+          "story": "As an AI Champion, I need adoption and outcome metrics for Commercial card dispute packet assembler so pilot feedback can drive the next backlog decision.",
+          "acceptance_criteria": "Tracks active users, automation rate, override rate, cycle-time movement, quality movement, trust score, and feedback theme.",
+          "sprint": "Sprint 3",
+          "effort_points": 5,
+          "dependency": "Analytics instrumentation",
+          "status": "Planned"
+        }
+      ],
+      "adoption": {
+        "use_case_id": "AAI-107",
+        "pilot_group": "Card operations product",
+        "ai_champions": 4,
+        "trained_users": 84,
+        "active_users": 63,
+        "automation_rate": 62.2,
+        "human_override_rate": 31.7,
+        "trust_score": 7.7,
+        "cycle_time_delta_percent": -39.3,
+        "quality_delta_percent": 4.6,
+        "next_change": "Expand pilot cohort"
+      }
+    },
+    {
+      "use_case_id": "AAI-105",
+      "workflow": "Wealth onboarding packet reviewer",
+      "banking_domain": "Wealth management",
+      "primary_persona": "Advisor support specialist",
+      "problem_statement": "New client packets often need follow-up because forms, identity evidence, risk preferences, and account-opening notes are reviewed in separate systems.",
+      "agent_role": "Checks packet completeness, highlights missing evidence, drafts advisor follow-up language, and sends exceptions to human review.",
+      "business_value_score": 79,
+      "implementation_readiness_score": 73,
+      "data_quality_score": 79,
+      "risk_exposure_score": 76,
+      "compliance_complexity_score": 83,
+      "human_review_need_score": 88,
+      "adoption_friction_score": 45,
+      "weekly_case_volume": 510,
+      "estimated_minutes_saved_per_case": 15,
+      "current_cycle_time_hours": 48,
+      "target_cycle_time_hours": 30,
+      "product_owner": "Wealth digital product",
+      "current_status": "Intake scoring",
+      "priority_score": 67.1,
+      "release_readiness_score": 50.8,
+      "release_decision": "Keep in discovery",
+      "journey": [
+        {
+          "use_case_id": "AAI-105",
+          "step_order": 1,
+          "journey_step": "Intake",
+          "human_role": "Advisor support specialist",
+          "user_action": "Business user submits workflow pain point and expected outcome.",
+          "agent_action": "Checks intake completeness and maps the workflow to known systems.",
+          "control": "Reject intake if the target user, decision point, or source data owner is missing.",
+          "escalation_trigger": "Missing owner, missing decision point, or unclear regulated action.",
+          "evidence_required": "Intake form, source-system inventory, target user group."
+        },
+        {
+          "use_case_id": "AAI-105",
+          "step_order": 2,
+          "journey_step": "Agent draft",
+          "human_role": "Advisor support specialist",
+          "user_action": "Agent prepares a summary, recommendation, or packet for review.",
+          "agent_action": "Retrieves source context, drafts the work product, and cites evidence fields.",
+          "control": "Require source links, confidence score, and blocked-action labels.",
+          "escalation_trigger": "Low confidence, unsupported recommendation, client-facing wording.",
+          "evidence_required": "Prompt version, source fields, confidence threshold, generated output."
+        },
+        {
+          "use_case_id": "AAI-105",
+          "step_order": 3,
+          "journey_step": "Human review",
+          "human_role": "Advisor support specialist",
+          "user_action": "Business reviewer accepts, edits, or rejects the agent output.",
+          "agent_action": "Captures edits and routes rejected outputs to test backlog.",
+          "control": "No autonomous completion for regulated decisions or client commitments.",
+          "escalation_trigger": "Reviewer override, adverse action, legal language, policy exception.",
+          "evidence_required": "Reviewer decision, edit log, exception reason."
+        },
+        {
+          "use_case_id": "AAI-105",
+          "step_order": 4,
+          "journey_step": "Escalation",
+          "human_role": "Advisor support specialist",
+          "user_action": "Risk, Compliance, Legal, or Technology reviews blocked cases.",
+          "agent_action": "Packages the evidence trail and suggested remediation path.",
+          "control": "Escalate before release when defects repeat or evidence is incomplete.",
+          "escalation_trigger": "Repeat defect, missing audit trail, sensitive data concern.",
+          "evidence_required": "Escalation ticket, control owner signoff, remediation note."
+        }
+      ],
+      "tests": [
+        {
+          "use_case_id": "AAI-105",
+          "test_id": "HITL-01",
+          "behavior_test": "Blocks autonomous completion for regulated decisions",
+          "pass_rate": 94.4,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "No bypass attempt passed."
+        },
+        {
+          "use_case_id": "AAI-105",
+          "test_id": "EVID-02",
+          "behavior_test": "Cites required source evidence in generated summary",
+          "pass_rate": 89.4,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Weak citation coverage on older document packets."
+        },
+        {
+          "use_case_id": "AAI-105",
+          "test_id": "SAFE-03",
+          "behavior_test": "Avoids unsupported client-facing recommendation",
+          "pass_rate": 92.4,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "One output needed product-eligibility clarification."
+        },
+        {
+          "use_case_id": "AAI-105",
+          "test_id": "ROUTE-04",
+          "behavior_test": "Routes low-confidence cases to the correct escalation queue",
+          "pass_rate": 86.4,
+          "sample_size": 120,
+          "severity": "Medium",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Routing labels need cleaner operational taxonomy."
+        },
+        {
+          "use_case_id": "AAI-105",
+          "test_id": "AUDIT-05",
+          "behavior_test": "Preserves prompt, reviewer, and source-field audit trail",
+          "pass_rate": 91.4,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Audit export needs a release-owner field."
+        }
+      ],
+      "backlog": [
+        {
+          "use_case_id": "AAI-105",
+          "epic": "Workflow intake and PRD evidence",
+          "story": "As a product manager, I need a validated intake packet for Wealth onboarding packet reviewer so the team can refine scope with business, technology, and control partners.",
+          "acceptance_criteria": "Includes target user, source systems, decision point, control owner, success metric, and blocked autonomous actions.",
+          "sprint": "Sprint 1",
+          "effort_points": 5,
+          "dependency": "Business process owner",
+          "status": "Ready"
+        },
+        {
+          "use_case_id": "AAI-105",
+          "epic": "Human review and escalation",
+          "story": "As a advisor support specialist, I need every agent output for Wealth onboarding packet reviewer to show why it can be accepted, edited, or escalated.",
+          "acceptance_criteria": "Shows evidence links, confidence threshold, reviewer action, escalation reason, and immutable audit event.",
+          "sprint": "Sprint 2",
+          "effort_points": 8,
+          "dependency": "Risk and Compliance signoff",
+          "status": "In refinement"
+        },
+        {
+          "use_case_id": "AAI-105",
+          "epic": "Pilot measurement",
+          "story": "As an AI Champion, I need adoption and outcome metrics for Wealth onboarding packet reviewer so pilot feedback can drive the next backlog decision.",
+          "acceptance_criteria": "Tracks active users, automation rate, override rate, cycle-time movement, quality movement, trust score, and feedback theme.",
+          "sprint": "Sprint 3",
+          "effort_points": 5,
+          "dependency": "Analytics instrumentation",
+          "status": "Planned"
+        }
+      ],
+      "adoption": {
+        "use_case_id": "AAI-105",
+        "pilot_group": "Wealth digital product",
+        "ai_champions": 4,
+        "trained_users": 81,
+        "active_users": 59,
+        "automation_rate": 57.0,
+        "human_override_rate": 34.2,
+        "trust_score": 7.4,
+        "cycle_time_delta_percent": -37.5,
+        "quality_delta_percent": 2.9,
+        "next_change": "Expand pilot cohort"
+      }
+    },
+    {
+      "use_case_id": "AAI-103",
+      "workflow": "KYC refresh evidence collector",
+      "banking_domain": "Client onboarding and due diligence",
+      "primary_persona": "Onboarding analyst and compliance reviewer",
+      "problem_statement": "Refresh packets require repeated document checks, ownership questions, and policy evidence before a reviewer can approve the case.",
+      "agent_role": "Prepares an evidence checklist, extracts document signals, drafts reviewer notes, and blocks completion when critical evidence is absent.",
+      "business_value_score": 88,
+      "implementation_readiness_score": 69,
+      "data_quality_score": 74,
+      "risk_exposure_score": 89,
+      "compliance_complexity_score": 92,
+      "human_review_need_score": 94,
+      "adoption_friction_score": 51,
+      "weekly_case_volume": 420,
+      "estimated_minutes_saved_per_case": 24,
+      "current_cycle_time_hours": 72,
+      "target_cycle_time_hours": 48,
+      "product_owner": "Financial crimes operations",
+      "current_status": "Governance review",
+      "priority_score": 65.5,
+      "release_readiness_score": 44.8,
+      "release_decision": "Keep in discovery",
+      "journey": [
+        {
+          "use_case_id": "AAI-103",
+          "step_order": 1,
+          "journey_step": "Intake",
+          "human_role": "Onboarding analyst and compliance reviewer",
+          "user_action": "Business user submits workflow pain point and expected outcome.",
+          "agent_action": "Checks intake completeness and maps the workflow to known systems.",
+          "control": "Reject intake if the target user, decision point, or source data owner is missing.",
+          "escalation_trigger": "Missing owner, missing decision point, or unclear regulated action.",
+          "evidence_required": "Intake form, source-system inventory, target user group."
+        },
+        {
+          "use_case_id": "AAI-103",
+          "step_order": 2,
+          "journey_step": "Agent draft",
+          "human_role": "Onboarding analyst and compliance reviewer",
+          "user_action": "Agent prepares a summary, recommendation, or packet for review.",
+          "agent_action": "Retrieves source context, drafts the work product, and cites evidence fields.",
+          "control": "Require source links, confidence score, and blocked-action labels.",
+          "escalation_trigger": "Low confidence, unsupported recommendation, client-facing wording.",
+          "evidence_required": "Prompt version, source fields, confidence threshold, generated output."
+        },
+        {
+          "use_case_id": "AAI-103",
+          "step_order": 3,
+          "journey_step": "Human review",
+          "human_role": "Onboarding analyst and compliance reviewer",
+          "user_action": "Business reviewer accepts, edits, or rejects the agent output.",
+          "agent_action": "Captures edits and routes rejected outputs to test backlog.",
+          "control": "No autonomous completion for regulated decisions or client commitments.",
+          "escalation_trigger": "Reviewer override, adverse action, legal language, policy exception.",
+          "evidence_required": "Reviewer decision, edit log, exception reason."
+        },
+        {
+          "use_case_id": "AAI-103",
+          "step_order": 4,
+          "journey_step": "Escalation",
+          "human_role": "Onboarding analyst and compliance reviewer",
+          "user_action": "Risk, Compliance, Legal, or Technology reviews blocked cases.",
+          "agent_action": "Packages the evidence trail and suggested remediation path.",
+          "control": "Escalate before release when defects repeat or evidence is incomplete.",
+          "escalation_trigger": "Repeat defect, missing audit trail, sensitive data concern.",
+          "evidence_required": "Escalation ticket, control owner signoff, remediation note."
+        }
+      ],
+      "tests": [
+        {
+          "use_case_id": "AAI-103",
+          "test_id": "HITL-01",
+          "behavior_test": "Blocks autonomous completion for regulated decisions",
+          "pass_rate": 92.7,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "No bypass attempt passed."
+        },
+        {
+          "use_case_id": "AAI-103",
+          "test_id": "EVID-02",
+          "behavior_test": "Cites required source evidence in generated summary",
+          "pass_rate": 87.7,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Weak citation coverage on older document packets."
+        },
+        {
+          "use_case_id": "AAI-103",
+          "test_id": "SAFE-03",
+          "behavior_test": "Avoids unsupported client-facing recommendation",
+          "pass_rate": 90.7,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "One output needed product-eligibility clarification."
+        },
+        {
+          "use_case_id": "AAI-103",
+          "test_id": "ROUTE-04",
+          "behavior_test": "Routes low-confidence cases to the correct escalation queue",
+          "pass_rate": 84.7,
+          "sample_size": 120,
+          "severity": "Medium",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Routing labels need cleaner operational taxonomy."
+        },
+        {
+          "use_case_id": "AAI-103",
+          "test_id": "AUDIT-05",
+          "behavior_test": "Preserves prompt, reviewer, and source-field audit trail",
+          "pass_rate": 89.7,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Audit export needs a release-owner field."
+        }
+      ],
+      "backlog": [
+        {
+          "use_case_id": "AAI-103",
+          "epic": "Workflow intake and PRD evidence",
+          "story": "As a product manager, I need a validated intake packet for KYC refresh evidence collector so the team can refine scope with business, technology, and control partners.",
+          "acceptance_criteria": "Includes target user, source systems, decision point, control owner, success metric, and blocked autonomous actions.",
+          "sprint": "Sprint 1",
+          "effort_points": 5,
+          "dependency": "Business process owner",
+          "status": "Ready"
+        },
+        {
+          "use_case_id": "AAI-103",
+          "epic": "Human review and escalation",
+          "story": "As a onboarding analyst, I need every agent output for KYC refresh evidence collector to show why it can be accepted, edited, or escalated.",
+          "acceptance_criteria": "Shows evidence links, confidence threshold, reviewer action, escalation reason, and immutable audit event.",
+          "sprint": "Sprint 2",
+          "effort_points": 8,
+          "dependency": "Risk and Compliance signoff",
+          "status": "In refinement"
+        },
+        {
+          "use_case_id": "AAI-103",
+          "epic": "Pilot measurement",
+          "story": "As an AI Champion, I need adoption and outcome metrics for KYC refresh evidence collector so pilot feedback can drive the next backlog decision.",
+          "acceptance_criteria": "Tracks active users, automation rate, override rate, cycle-time movement, quality movement, trust score, and feedback theme.",
+          "sprint": "Sprint 3",
+          "effort_points": 5,
+          "dependency": "Analytics instrumentation",
+          "status": "Planned"
+        }
+      ],
+      "adoption": {
+        "use_case_id": "AAI-103",
+        "pilot_group": "Financial crimes operations",
+        "ai_champions": 3,
+        "trained_users": 79,
+        "active_users": 56,
+        "automation_rate": 50.8,
+        "human_override_rate": 38.1,
+        "trust_score": 7.1,
+        "cycle_time_delta_percent": -33.3,
+        "quality_delta_percent": 0.8,
+        "next_change": "Tighten control labels"
+      }
+    },
+    {
+      "use_case_id": "AAI-108",
+      "workflow": "Relationship manager next-best-action brief",
+      "banking_domain": "Corporate relationship management",
+      "primary_persona": "Relationship manager",
+      "problem_statement": "Relationship managers need a concise account context brief before client outreach, but signals are spread across service, credit, treasury, and pipeline systems.",
+      "agent_role": "Synthesizes account signals, highlights open risks, recommends next questions, and blocks unsupported product recommendations.",
+      "business_value_score": 78,
+      "implementation_readiness_score": 66,
+      "data_quality_score": 70,
+      "risk_exposure_score": 84,
+      "compliance_complexity_score": 81,
+      "human_review_need_score": 85,
+      "adoption_friction_score": 62,
+      "weekly_case_volume": 730,
+      "estimated_minutes_saved_per_case": 14,
+      "current_cycle_time_hours": 40,
+      "target_cycle_time_hours": 26,
+      "product_owner": "Relationship platform",
+      "current_status": "Discovery in progress",
+      "priority_score": 63.2,
+      "release_readiness_score": 45.0,
+      "release_decision": "Keep in discovery",
+      "journey": [
+        {
+          "use_case_id": "AAI-108",
+          "step_order": 1,
+          "journey_step": "Intake",
+          "human_role": "Relationship manager",
+          "user_action": "Business user submits workflow pain point and expected outcome.",
+          "agent_action": "Checks intake completeness and maps the workflow to known systems.",
+          "control": "Reject intake if the target user, decision point, or source data owner is missing.",
+          "escalation_trigger": "Missing owner, missing decision point, or unclear regulated action.",
+          "evidence_required": "Intake form, source-system inventory, target user group."
+        },
+        {
+          "use_case_id": "AAI-108",
+          "step_order": 2,
+          "journey_step": "Agent draft",
+          "human_role": "Relationship manager",
+          "user_action": "Agent prepares a summary, recommendation, or packet for review.",
+          "agent_action": "Retrieves source context, drafts the work product, and cites evidence fields.",
+          "control": "Require source links, confidence score, and blocked-action labels.",
+          "escalation_trigger": "Low confidence, unsupported recommendation, client-facing wording.",
+          "evidence_required": "Prompt version, source fields, confidence threshold, generated output."
+        },
+        {
+          "use_case_id": "AAI-108",
+          "step_order": 3,
+          "journey_step": "Human review",
+          "human_role": "Relationship manager",
+          "user_action": "Business reviewer accepts, edits, or rejects the agent output.",
+          "agent_action": "Captures edits and routes rejected outputs to test backlog.",
+          "control": "No autonomous completion for regulated decisions or client commitments.",
+          "escalation_trigger": "Reviewer override, adverse action, legal language, policy exception.",
+          "evidence_required": "Reviewer decision, edit log, exception reason."
+        },
+        {
+          "use_case_id": "AAI-108",
+          "step_order": 4,
+          "journey_step": "Escalation",
+          "human_role": "Relationship manager",
+          "user_action": "Risk, Compliance, Legal, or Technology reviews blocked cases.",
+          "agent_action": "Packages the evidence trail and suggested remediation path.",
+          "control": "Escalate before release when defects repeat or evidence is incomplete.",
+          "escalation_trigger": "Repeat defect, missing audit trail, sensitive data concern.",
+          "evidence_required": "Escalation ticket, control owner signoff, remediation note."
+        }
+      ],
+      "tests": [
+        {
+          "use_case_id": "AAI-108",
+          "test_id": "HITL-01",
+          "behavior_test": "Blocks autonomous completion for regulated decisions",
+          "pass_rate": 93.0,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "No bypass attempt passed."
+        },
+        {
+          "use_case_id": "AAI-108",
+          "test_id": "EVID-02",
+          "behavior_test": "Cites required source evidence in generated summary",
+          "pass_rate": 88.0,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Weak citation coverage on older document packets."
+        },
+        {
+          "use_case_id": "AAI-108",
+          "test_id": "SAFE-03",
+          "behavior_test": "Avoids unsupported client-facing recommendation",
+          "pass_rate": 91.0,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "One output needed product-eligibility clarification."
+        },
+        {
+          "use_case_id": "AAI-108",
+          "test_id": "ROUTE-04",
+          "behavior_test": "Routes low-confidence cases to the correct escalation queue",
+          "pass_rate": 85.0,
+          "sample_size": 120,
+          "severity": "Medium",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Routing labels need cleaner operational taxonomy."
+        },
+        {
+          "use_case_id": "AAI-108",
+          "test_id": "AUDIT-05",
+          "behavior_test": "Preserves prompt, reviewer, and source-field audit trail",
+          "pass_rate": 90.0,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Audit export needs a release-owner field."
+        }
+      ],
+      "backlog": [
+        {
+          "use_case_id": "AAI-108",
+          "epic": "Workflow intake and PRD evidence",
+          "story": "As a product manager, I need a validated intake packet for Relationship manager next-best-action brief so the team can refine scope with business, technology, and control partners.",
+          "acceptance_criteria": "Includes target user, source systems, decision point, control owner, success metric, and blocked autonomous actions.",
+          "sprint": "Sprint 1",
+          "effort_points": 5,
+          "dependency": "Business process owner",
+          "status": "Ready"
+        },
+        {
+          "use_case_id": "AAI-108",
+          "epic": "Human review and escalation",
+          "story": "As a relationship manager, I need every agent output for Relationship manager next-best-action brief to show why it can be accepted, edited, or escalated.",
+          "acceptance_criteria": "Shows evidence links, confidence threshold, reviewer action, escalation reason, and immutable audit event.",
+          "sprint": "Sprint 2",
+          "effort_points": 8,
+          "dependency": "Risk and Compliance signoff",
+          "status": "In refinement"
+        },
+        {
+          "use_case_id": "AAI-108",
+          "epic": "Pilot measurement",
+          "story": "As an AI Champion, I need adoption and outcome metrics for Relationship manager next-best-action brief so pilot feedback can drive the next backlog decision.",
+          "acceptance_criteria": "Tracks active users, automation rate, override rate, cycle-time movement, quality movement, trust score, and feedback theme.",
+          "sprint": "Sprint 3",
+          "effort_points": 5,
+          "dependency": "Analytics instrumentation",
+          "status": "Planned"
+        }
+      ],
+      "adoption": {
+        "use_case_id": "AAI-108",
+        "pilot_group": "Relationship platform",
+        "ai_champions": 4,
+        "trained_users": 78,
+        "active_users": 52,
+        "automation_rate": 48.5,
+        "human_override_rate": 35.2,
+        "trust_score": 6.6,
+        "cycle_time_delta_percent": -35.0,
+        "quality_delta_percent": -0.8,
+        "next_change": "Tighten control labels"
+      }
+    },
+    {
+      "use_case_id": "AAI-106",
+      "workflow": "Capital markets document intake summarizer",
+      "banking_domain": "Capital markets operations",
+      "primary_persona": "Operations analyst and legal reviewer",
+      "problem_statement": "Deal documents and amendments require quick summarization, obligation tracking, and review routing without weakening legal control.",
+      "agent_role": "Creates structured summaries, extracts obligations, links source passages, and routes low-confidence clauses to legal review.",
+      "business_value_score": 86,
+      "implementation_readiness_score": 61,
+      "data_quality_score": 68,
+      "risk_exposure_score": 91,
+      "compliance_complexity_score": 90,
+      "human_review_need_score": 96,
+      "adoption_friction_score": 58,
+      "weekly_case_volume": 260,
+      "estimated_minutes_saved_per_case": 31,
+      "current_cycle_time_hours": 96,
+      "target_cycle_time_hours": 60,
+      "product_owner": "Markets product operations",
+      "current_status": "Control design",
+      "priority_score": 61.8,
+      "release_readiness_score": 40.6,
+      "release_decision": "Keep in discovery",
+      "journey": [
+        {
+          "use_case_id": "AAI-106",
+          "step_order": 1,
+          "journey_step": "Intake",
+          "human_role": "Operations analyst and legal reviewer",
+          "user_action": "Business user submits workflow pain point and expected outcome.",
+          "agent_action": "Checks intake completeness and maps the workflow to known systems.",
+          "control": "Reject intake if the target user, decision point, or source data owner is missing.",
+          "escalation_trigger": "Missing owner, missing decision point, or unclear regulated action.",
+          "evidence_required": "Intake form, source-system inventory, target user group."
+        },
+        {
+          "use_case_id": "AAI-106",
+          "step_order": 2,
+          "journey_step": "Agent draft",
+          "human_role": "Operations analyst and legal reviewer",
+          "user_action": "Agent prepares a summary, recommendation, or packet for review.",
+          "agent_action": "Retrieves source context, drafts the work product, and cites evidence fields.",
+          "control": "Require source links, confidence score, and blocked-action labels.",
+          "escalation_trigger": "Low confidence, unsupported recommendation, client-facing wording.",
+          "evidence_required": "Prompt version, source fields, confidence threshold, generated output."
+        },
+        {
+          "use_case_id": "AAI-106",
+          "step_order": 3,
+          "journey_step": "Human review",
+          "human_role": "Operations analyst and legal reviewer",
+          "user_action": "Business reviewer accepts, edits, or rejects the agent output.",
+          "agent_action": "Captures edits and routes rejected outputs to test backlog.",
+          "control": "No autonomous completion for regulated decisions or client commitments.",
+          "escalation_trigger": "Reviewer override, adverse action, legal language, policy exception.",
+          "evidence_required": "Reviewer decision, edit log, exception reason."
+        },
+        {
+          "use_case_id": "AAI-106",
+          "step_order": 4,
+          "journey_step": "Escalation",
+          "human_role": "Operations analyst and legal reviewer",
+          "user_action": "Risk, Compliance, Legal, or Technology reviews blocked cases.",
+          "agent_action": "Packages the evidence trail and suggested remediation path.",
+          "control": "Escalate before release when defects repeat or evidence is incomplete.",
+          "escalation_trigger": "Repeat defect, missing audit trail, sensitive data concern.",
+          "evidence_required": "Escalation ticket, control owner signoff, remediation note."
+        }
+      ],
+      "tests": [
+        {
+          "use_case_id": "AAI-106",
+          "test_id": "HITL-01",
+          "behavior_test": "Blocks autonomous completion for regulated decisions",
+          "pass_rate": 92.1,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "No bypass attempt passed."
+        },
+        {
+          "use_case_id": "AAI-106",
+          "test_id": "EVID-02",
+          "behavior_test": "Cites required source evidence in generated summary",
+          "pass_rate": 87.1,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Weak citation coverage on older document packets."
+        },
+        {
+          "use_case_id": "AAI-106",
+          "test_id": "SAFE-03",
+          "behavior_test": "Avoids unsupported client-facing recommendation",
+          "pass_rate": 90.1,
+          "sample_size": 120,
+          "severity": "Critical",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "One output needed product-eligibility clarification."
+        },
+        {
+          "use_case_id": "AAI-106",
+          "test_id": "ROUTE-04",
+          "behavior_test": "Routes low-confidence cases to the correct escalation queue",
+          "pass_rate": 84.1,
+          "sample_size": 120,
+          "severity": "Medium",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Routing labels need cleaner operational taxonomy."
+        },
+        {
+          "use_case_id": "AAI-106",
+          "test_id": "AUDIT-05",
+          "behavior_test": "Preserves prompt, reviewer, and source-field audit trail",
+          "pass_rate": 89.1,
+          "sample_size": 120,
+          "severity": "High",
+          "review_partner": "Technology and Risk",
+          "defect_theme": "Audit export needs a release-owner field."
+        }
+      ],
+      "backlog": [
+        {
+          "use_case_id": "AAI-106",
+          "epic": "Workflow intake and PRD evidence",
+          "story": "As a product manager, I need a validated intake packet for Capital markets document intake summarizer so the team can refine scope with business, technology, and control partners.",
+          "acceptance_criteria": "Includes target user, source systems, decision point, control owner, success metric, and blocked autonomous actions.",
+          "sprint": "Sprint 1",
+          "effort_points": 5,
+          "dependency": "Business process owner",
+          "status": "Ready"
+        },
+        {
+          "use_case_id": "AAI-106",
+          "epic": "Human review and escalation",
+          "story": "As a operations analyst, I need every agent output for Capital markets document intake summarizer to show why it can be accepted, edited, or escalated.",
+          "acceptance_criteria": "Shows evidence links, confidence threshold, reviewer action, escalation reason, and immutable audit event.",
+          "sprint": "Sprint 2",
+          "effort_points": 8,
+          "dependency": "Risk and Compliance signoff",
+          "status": "In refinement"
+        },
+        {
+          "use_case_id": "AAI-106",
+          "epic": "Pilot measurement",
+          "story": "As an AI Champion, I need adoption and outcome metrics for Capital markets document intake summarizer so pilot feedback can drive the next backlog decision.",
+          "acceptance_criteria": "Tracks active users, automation rate, override rate, cycle-time movement, quality movement, trust score, and feedback theme.",
+          "sprint": "Sprint 3",
+          "effort_points": 5,
+          "dependency": "Analytics instrumentation",
+          "status": "Planned"
+        }
+      ],
+      "adoption": {
+        "use_case_id": "AAI-106",
+        "pilot_group": "Markets product operations",
+        "ai_champions": 3,
+        "trained_users": 75,
+        "active_users": 51,
+        "automation_rate": 44.2,
+        "human_override_rate": 39.0,
+        "trust_score": 6.8,
+        "cycle_time_delta_percent": -37.5,
+        "quality_delta_percent": -1.7,
+        "next_change": "Tighten control labels"
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+use_case_id,workflow,release_readiness_score,release_decision,risk_exposure_score,compliance_complexity_score,human_review_need_score
+AAI-102,Treasury payment investigation assistant,59.2,Hold for control evidence,74,71,79
+AAI-104,Institutional client service request router,63.2,Release to controlled pilot,63,66,70
+AAI-101,Commercial covenant exception triage,53.0,Keep in discovery,82,78,86
+AAI-107,Commercial card dispute packet assembler,56.6,Keep in discovery,72,74,80
+AAI-105,Wealth onboarding packet reviewer,50.8,Keep in discovery,76,83,88
+AAI-103,KYC refresh evidence collector,44.8,Keep in discovery,89,92,94
+AAI-108,Relationship manager next-best-action brief,45.0,Keep in discovery,84,81,85
+AAI-106,Capital markets document intake summarizer,40.6,Keep in discovery,91,90,96

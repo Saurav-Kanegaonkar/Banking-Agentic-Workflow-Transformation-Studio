@@ -1,0 +1,10 @@
+{
+  "use_cases": 8,
+  "avg_priority": 69.8,
+  "avg_readiness": 51.7,
+  "pilot_ready": 1,
+  "control_hold": 1,
+  "highest_priority": "Treasury payment investigation assistant",
+  "total_weekly_volume": 6170,
+  "estimated_weekly_hours_saved": 1422.3
+}
